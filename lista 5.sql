@@ -1,0 +1,15 @@
+/*zadanie 1*/
+/*SELECT DISTINCT orderID, sum(Quantity) as "Ilość zakupionych produktów", sum(Quantity*UnitPrice) as "kwota zamówienia" from `Order Details` GROUP by orderID ORDER BY sum(Quantity*UnitPrice) DESC LIMIT 1;*/
+
+/*zadanie 2*/
+/*SELECT CustomerID, count(CustomerID)  from Orders group by CustomerID having count(CustomerID)>20 order by count(CustomerID);*/
+
+/*zadanie 3*/
+/*SELECT CONCAT(ROUND(sum(Discontinued) /count(Discontinued),2)*100,"%") from Products;*/
+
+/*zadanie 4*/
+/*SELECT a.Country, (a.suma1/b.suma2) as "odestki" from
+(SELECT Country, count(ContactName) as "suma1" from Customers where Right(substring_index(ContactName, " ", 1),1) in ("a") group by Country) as a
+JOIN
+(SELECT Country, count(Country) as "suma2" from Customers group by Country) as b
+ON a.Country=b.Country Order by odestki DESC, Country LIMIT 5;*/
